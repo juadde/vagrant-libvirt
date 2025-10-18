@@ -420,18 +420,21 @@ module VagrantPlugins
           else
             video_model = REXML::XPath.first(xml_descr, '/domain/devices/video/model')
             if video_model.nil?
-              @logger.debug "video updated from not set to type '#{config.video_type}' and vram '#{config.video_vram}'"
+              @logger.debug "video updated from not set to type '#{config.video_type}', with '#{config.video_heads}' heads and vram '#{config.video_vram}'"
               descr_changed = true
               video_model = REXML::Element.new('model', REXML::XPath.first(xml_descr, '/domain/devices/video'))
               video_model.attributes['type'] = config.video_type
               video_model.attributes['vram'] = config.video_vram
+              video_model.attributes['heads'] = config.video_heads
             else
-              if video_model.attributes['type'] != config.video_type || video_model.attributes['vram'] != config.video_vram.to_s
+              if video_model.attributes['type'] != config.video_type || video_model.attributes['vram'] != config.video_vram.to_s || video_model.attributes['heads'] != config.video_heads
                 @logger.debug "video type updated from '#{video_model.attributes['type']}' to '#{config.video_type}'"
                 @logger.debug "video vram updated from '#{video_model.attributes['vram']}' to '#{config.video_vram}'"
+                @logger.debug "video heads updated from '#{video_model.attributes['heads']}' to '#{config.video_heads}'"
                 descr_changed = true
                 video_model.attributes['type'] = config.video_type
                 video_model.attributes['vram'] = config.video_vram
+                video_model.attributes['heads'] = config.video_heads
               end
             end
             video_accel = REXML::XPath.first(xml_descr, '/domain/devices/video/model/acceleration')

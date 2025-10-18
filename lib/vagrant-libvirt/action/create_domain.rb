@@ -76,6 +76,7 @@ module VagrantPlugins
           @graphics_gl = config.graphics_gl
           @video_type = config.video_type
           @sound_type = config.sound_type
+          @video_heads = config.video_heads
           @video_vram = config.video_vram
           @video_accel3d = config.video_accel3d
           @keymap = config.keymap
@@ -292,6 +293,7 @@ module VagrantPlugins
             env[:ui].info(" -- Graphics IP:       #{@graphics_ip}")
             env[:ui].info(" -- Graphics Password: #{@graphics_passwd.nil? ? 'Not defined' : 'Defined'}")
           end
+          env[:ui].info(" -- Video heads:       #{@video_heads}")
           env[:ui].info(" -- Video Type:        #{@video_type}")
           env[:ui].info(" -- Video VRAM:        #{@video_vram}")
           env[:ui].info(" -- Video 3D accel:    #{@video_accel3d}")

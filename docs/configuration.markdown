@@ -188,6 +188,8 @@ end
 * `kvm_hidden` - [Hide the hypervisor from the
   guest](https://libvirt.org/formatdomain.html#hypervisor-features). Useful for
   [GPU passthrough](#pci-device-passthrough) on stubborn drivers. Default is false.
+* `video_heads` - Sets the number of monitors of the guest. Defaults to
+  "1".
 * `video_type` - Sets the graphics card type exposed to the guest.  Defaults to
   "cirrus".  [Possible
   values](http://libvirt.org/formatdomain.html#video-devices) are "vga",

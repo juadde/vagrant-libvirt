@@ -133,6 +133,7 @@ module VagrantPlugins
       attr_accessor :graphics_passwd
       attr_accessor :graphics_ip
       attr_accessor :graphics_gl
+      attr_accessor :video_heads
       attr_accessor :video_type
       attr_accessor :video_vram
       attr_accessor :video_accel3d

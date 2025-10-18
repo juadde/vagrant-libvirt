@@ -285,7 +285,7 @@
       <gl enable='yes'/>
     </graphics><% end -%>
     <video>
-      <model type='<%= @video_type %>' vram='<%= @video_vram %>' heads='1'<% if not @video_accel3d %>/><% else %>>
+      <model type='<%= @video_type %>' vram='<%= @video_vram %>' heads='<%= @video_heads %>'<% if not @video_accel3d %>/><% else %>>
         <acceleration accel3d='yes'/>
       </model><% end -%>
     </video>
